@@ -1,0 +1,22 @@
+{% extends "product/base.html" %}
+
+{% block content %}
+    <header class="w3-container w3-green">
+    <h2>Nuevos Productos </h2>
+    </header>
+    <div class='w3-container'>
+        <section>
+            <!--creamos el formulario-->
+            <form method="POST">
+                {% csrf_token %}
+                {% for field in form %}
+                    <div class="mb-3">
+                        {{ field.label}}
+                        {{field}}
+                    </div>
+                {% endfor %}
+                <button class = "w3-button w3-green" type="submit">Guardar</button>
+            </form>
+        </section>
+    </div>
+{% endblock %}

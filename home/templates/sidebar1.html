@@ -1,0 +1,43 @@
+
+    <a href="/home" class="w3-bar-item w3-button">INICIO</a>
+    <div class="w3-bar-item w3-button" onclick="myAccFuncProd()">PRODUCTO <i class="fa fa-caret-down"></i></div>
+        <div id="mn_producto" class="w3-hide w3-white w3-card-4">
+            <a href="/productos" class="w3-bar-item w3-button">Listar productos</a>
+            <a href="/productos/create" class="w3-bar-item w3-button">Agregar producto</a>
+        </div>
+    <div class="w3-bar-item w3-button" onclick="myAccFuncProv()">PROVEEDOR <i class="fa fa-caret-down"></i></div>
+        <div id="mn_proveedor" class="w3-hide w3-white w3-card-4">
+          <a href="/productos/proveedor" class="w3-bar-item w3-button">Listar Proveedores</a>
+          <a href="/productos/proveedor/create" class="w3-bar-item w3-button">Agregar Proveedor</a>
+        </div>
+    <div class="w3-bar-item w3-button" onclick="myAccFuncPedido()">PEDIDO <i class="fa fa-caret-down"></i></div>
+        <div id="mn_pedido" class="w3-hide w3-white w3-card-4">
+            <a href="#" class="w3-bar-item w3-button">Link</a>
+            <a href="#" class="w3-bar-item w3-button">Link</a>
+        </div>
+    <div class="w3-bar-item w3-button" onclick="myAccFuncFactura()">FACTURA <i class="fa fa-caret-down"></i></div>
+        <div id="mn_factura" class="w3-hide w3-white w3-card-4">
+            <a href="#" class="w3-bar-item w3-button">Link</a>
+            <a href="#" class="w3-bar-item w3-button">Link</a>
+        </div>
+    <div class="w3-bar-item w3-button" onclick="myAccFuncInv()">INVENTARIO <i class="fa fa-caret-down"></i></div>
+        <div id="mn_inventario" class="w3-hide w3-white w3-card-4">
+            <a href="#" class="w3-bar-item w3-button">Link</a>
+            <a href="#" class="w3-bar-item w3-button">Link</a>
+        </div>
+  
+    <div class="w3-dropdown-click">
+      <div class="w3-bar-item w3-button" onclick="myDropFunc()">
+        Dropdown <i class="fa fa-caret-down"></i>
+      </div>
+      <div id="demoDrop" class="w3-dropdown-content w3-white w3-card-4">
+        <a href="#" class="w3-bar-item w3-button">Link</a>
+        <a href="#" class="w3-bar-item w3-button">Link</a>
+      </div>
+    </div>
+    <a href="#" class="w3-bar-item w3-button">SOLICITUDES</a>
+    <a href="#" class="w3-bar-item w3-button">Link 3</a>
+    {% load static %}
+    <script src="{% static 'home/js/sidebar.js' %}"></script>
+  
+  

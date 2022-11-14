@@ -1,0 +1,18 @@
+<!-- este es el archivo base donde ponemos el head con las librerias como bootstrap que vamos a utilizar
+y las hojas de estilos -->
+
+<!DOCTYPE html>
+<html class="no-js" lang="es">
+    {% include "estilo.html" %}
+<body>
+    <div class="main-wrapper">
+        <div class="app header-fixed footer-fixed sidebar-fixed" id="app">
+			{% include "head.html" %}
+			{% include "header.html" %}
+			{% include "sidebar.html" %}
+			{% block content %}
+			{% endblock %}
+            </div>
+    </div>
+</body>
+</html>

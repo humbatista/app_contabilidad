@@ -1,0 +1,46 @@
+{% include "base_generic.html" %}
+    <body>
+        <div class="col-md-12">
+            <div class="login_page">
+
+                {% block content %}
+
+                {% if form.errors %}
+                <p>Your username and password didn't match. Please try again.</p>
+                {% endif %}
+
+                {% if next %}
+                    {% if user.is_authenticated %}
+                    <p>Your account doesn't have access to this page. To proceed,
+                    please login with an account that has access.</p>
+                    {% else %}
+                    <p>Please login to see this page.</p>
+                    {% endif %}
+                {% endif %}
+                <br><br>
+                <form class="form" method="post" action="{% url 'login' %}">
+                    {% load static %}
+                                <img class="img_form" src="{% static 'home/assets/logo/logo2.jpg' %}">
+                {% csrf_token %}
+
+                <div>
+                <td>{{ form.username.label_tag }}</td>
+                <td>{{ form.username }}</td>
+                </div>
+                <div>
+                <td>{{ form.password.label_tag }}</td>
+                <td>{{ form.password }}</td>
+                </div>
+
+                <div>
+                <button  type="submit" value="login" class="btn btn-block btn-primary">Iniciar sesion</button>
+                <input type="hidden" name="next" value="{{ next }}" />
+                </div>
+                <a href="{% url 'password_reset' %}" class="forgot-btn pull-right">Olvidaste la contraseña?</a>
+                </form>
+
+                {% endblock %}
+            </div>
+        </div>
+    </body>
+</html>

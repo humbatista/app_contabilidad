@@ -1,0 +1,67 @@
+{% extends "product/base.html" %}
+
+{% block content %}
+<header class="w3-container w3-green">
+    <h2>Listado de Productos </h2>
+</header>
+<article class="w3-container">
+    <!--inicio del contenedor-->
+    <div class='container-fluid'>
+        <section>
+            <!-- iniciamos la tajeta-->
+            <div class = "card">
+                <div class = "card-header">
+                    <h3> Listado de productos</h3>
+                </div>
+                <div class ="card-body">
+                    {% if listado_productos %}
+                    {% for product in listado_productos %}
+                        <div class="w3-card w3-hover-shadow">
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-md-2">
+                                        {% load static %}
+                                        <p><img class="img-thumbnail" src="{% static 'home/assets/img/producto.jpg' %}">
+                                    </div>
+                                    <div class="col-md-5">
+                                        <p>Codigo: {{ product.codigo }} </p>
+                                        <p>Barcode: {{ product.barcode }} </p>
+                                        <p>Nombre {{product.nombre}} </p>
+                                    </div>
+                                    <div class="col-md-5">
+                                        <p>Categoria: {{ product.categoria }} </p>
+                                        <p>Descripcion: {{ product.descripcion }} </p>
+                                        <p>Precio: {{product.precio}} </p> 
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <p>Suplidores de este producto:</p>
+                                    <ul>
+                                        {% for proveedores in product.proveedores.all %}
+                                    <li>{{proveedores}}</li>
+                                        {% endfor %} 
+                                    </ul>
+                                </div>
+                            </div>
+                        </div><br>
+                    {% endfor %}
+                    {% else %}
+                    <p>No existen productos.</p>
+                    {% endif %}
+                </div>
+                <div class = "card-footer">
+                    <h5>Fin de listado</h5>
+                </div>
+                <!-- fin de la tarjeta-->
+            </div>
+        </section>
+    </div>
+</article>
+{% load static %}
+        <link rel="stylesheet" href='{% static "home/css/boton-flotante.css" %}'>
+<div class="fab-container">
+    <a type="button" class="button iconbutton" href='create'>
+        <i class="fa fa-solid fa-plus"></i>
+    </a>
+</div>
+{% endblock %}
